@@ -1,0 +1,35 @@
+<h1> Coffee Sales Dashboard </h1>
+
+<div>
+    <h1>Last 12 months Sales</h1>
+    <%= line_chart @data_12_months.totalize_sales, legend: "top",
+    label: "Total sales", prefix: "$" %>
+</div>
+
+<div>
+    <h1>Last 12 months Total Sales Amount</h1>
+    <%= line_chart @data_12_months.totalize_counts, legend: "top",
+    label: "Total Sales Amount" %>
+</div>
+
+<div>
+    <h1>Last 12 months Sales Average</h1>
+    <%= line_chart @data_12_months.totalize_average, legend: "top",
+    label: "Sales Average" %>
+</div>
+
+<div>
+    <h1> Sales by Origin of the Coffee </h1>
+    <%= pie_chart @data_12_months.get_origins, legend: "top", title: "Last 12 months", label: "Sales" %>
+    <%= pie_chart @data_6_months.get_origins, legend: "top", title: "Last 6 months", label: "Sales" %>
+    <%= pie_chart @data_3_months.get_origins, legend: "top", title: "Last 3 months", label: "Sales" %>
+    <%= pie_chart @data_last_month.get_origins, legend: "top", title: "Last month", label: "Sales" %>
+</div>
+
+<div>
+    <h1>Sales by Blend of the Coffee</h1>
+    <%= pie_chart @data_12_months.get_coffees, legend: "top", title: "Last 12 months", label: "Sales" %>
+    <%= pie_chart @data_6_months.get_coffees, legend: "top", title: "Last 6 months", label: "Sales" %>
+    <%= pie_chart @data_3_months.get_coffees, legend: "top", title: "Last 3 months", label: "Sales" %>
+    <%= pie_chart @data_last_month.get_coffees, legend: "top", title: "Last month", label: "Sales" %>
+</div>
